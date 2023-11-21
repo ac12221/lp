@@ -1,0 +1,73 @@
+import pandas as pd
+
+df = pd.read_csv('Heart.csv')
+
+df.head()
+
+df.shape
+
+df.isnull()
+
+df.isnull().sum()
+
+df.count()
+
+df.dtypes
+
+df == 0
+
+df[df == 0]
+
+df[df == 0].count()
+
+df.columns
+
+df['Age']
+
+df['Age'].mean()
+
+df[['Age', 'Sex', 'ChestPain', 'RestBP', 'Chol']]
+
+newdf = [['Age', 'Sex', 'ChestPain', 'RestBP', 'Chol']]
+
+newdf
+
+from sklearn.model_selection import train_test_split
+
+train, test = train_test_split(df, random_state=0, test_size=0.25)
+
+train.shape
+
+test.shape
+
+import numpy as np
+
+actual = list(np.ones(45)) + list(np.zeros(55))
+
+np.array(actual)
+
+predicted = list(np.ones(45)) + list(np.zeros(52)) + list(np.ones(8))
+
+np.array(predicted)
+
+from sklearn.metrics import ConfusionMatrixDisplay
+
+
+
+ConfusionMatrixDisplay.from_predictions(actual, predicted)
+
+From sklearn.metrics import classification_report
+print(classification_report)
+
+
+tp=90
+fp=11
+fn=19
+tn=40
+acc=(tp+tn)/(tp+fp+fn+tn)
+pre=tp/(tp+fp)
+rec=tp/(tp+fn)
+print("Accuracy is : {}".format(acc))
+print("Precision is : {}".format(pre))
+print("Recall is : {}".format(rec))
+print("F1-Score is : {}".format((2*pre*rec)/(pre+rec)))
